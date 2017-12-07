@@ -33,16 +33,18 @@ def COO():
     for k in ele:
         print k,
     print "\n-------------------------------------------"
+    print "cooRows: "
     for o in rows:
         print o,
     print "\n-------------------------------------------"
+    print "cooCols: "
     for m in cols:
         print m,
     print "\n-------------------------------------------"
 
 #---------------------------------------------------------------------------------#
 a = 10
-while a !=0:
+while a != 0:
     print "-------------------------------------------"
     print("1)COO \n2)CSR \n0)Exit")
     a = input("Scelta: ")
@@ -51,6 +53,8 @@ while a !=0:
         print(COO())
     elif a == 2:
         print(CSR())
-    else:
+    elif a == 0:
         print "Programma terminato."
+    else:
+        print "Valore non valido."
 print "-------------------------------------------"
