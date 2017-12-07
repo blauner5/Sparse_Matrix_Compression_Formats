@@ -56,5 +56,5 @@ while a != 0:
     elif a == 0:
         print "Programma terminato."
     else:
-        print "Valore non valido."
+        print "Scelta non valida."
 print "-------------------------------------------"
