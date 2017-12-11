@@ -5,8 +5,8 @@ def COO():
     cooValA = [] #Salvo i valori della matrice non nulli
     cooColIndA = [] #Salvo gli indici di colonna
     cooRowIndA = [] #Salvo gli indici di riga
-    numrows = len(a)
-    numcols = len(a[0])
+    numrows = len(a) #Salvo la dimensione della matrice (riga)
+    numcols = len(a[0]) #Salvo la dimensione della matrice (colonna)
     for i in range (0,numrows):
         for j in range (0,numcols):
             if a[i][j] == '0': #Controllo se i valori della matrice sono nulli
@@ -40,8 +40,8 @@ def CSR():
     csrValA = [] #Salvo i valori della matrice non nulli
     csrColIndA = [] #Salvo gli indici di colonna
     csrRowPtrA = [] #Salvo dove inizia la riga
-    numrows = len(a)
-    numcols = len(a[0])
+    numrows = len(a) #Salvo la dimensione della matrice (riga)
+    numcols = len(a[0]) #Salvo la dimensione della matrice (colonna)
     csrRowPtrA.append(len(csrColIndA)) #Leggo il numero dell'indice di csrColIndA
     for i in range (0,numrows):
         for j in range (0,numcols):
@@ -76,8 +76,8 @@ def CSC():
     cscValA = [] #Salvo i valori della matrice non nulli
     cscColPtrA = [] #Salvo dove inizia la colonna
     cscRowIndA = [] #Salvo gli indici di riga
-    numrows = len(a)
-    numcols = len(a[0])
+    numrows = len(a) #Salvo la dimensione della matrice (riga)
+    numcols = len(a[0]) #Salvo la dimensione della matrice (colonna)
     cscColPtrA.append(len(cscRowIndA)) #Leggo il numero dell'indice di cscRowIndA
     for i in range(0,numcols):
         for j in range(0,numrows):
