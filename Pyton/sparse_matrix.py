@@ -1,35 +1,3 @@
-def CSR():
-    b = 0
-    f = open ('A.txt', 'r') #Apro il file contenente la matrice
-    a = [line.split() for line in f] #Leggo la matrice e la salvo su 'a'
-    csrValA = []
-    csrColIndA = []
-    csrRowPtrA = []
-    csrRowPtrA.append(len(csrColIndA))
-    for i in range (0,4):
-        for j in range (0,5):
-            if a[i][j] == '0':
-                b = b+1
-            else:
-                csrValA.append(a[i][j])
-                csrColIndA.append(j)
-        csrRowPtrA.append(len(csrColIndA))
-    print "-------------------------------------------"
-    print "Gli elementi nulli sono:", b
-    print "-------------------------------------------\n"
-    print "csrValA: "
-    for k in csrValA:
-        print k,
-    print "\n-------------------------------------------"
-    print "csrRowPtrA: "
-    for o in csrRowPtrA:
-        print o,
-    print "\n-------------------------------------------"
-    print "csrColIndA: "
-    for m in csrColIndA:
-        print m,
-    print "\n-------------------------------------------"
-
 def COO():
     b = 0
     f = open ('A.txt', 'r') #Apro il file contenente la matrice
@@ -61,7 +29,76 @@ def COO():
         print m,
     print "\n-------------------------------------------"
 
-#---------------------------------------------------------------------------------#
+#-----------------------------------------------------------------------------------------#
+
+def CSR():
+    b = 0
+    f = open ('A.txt', 'r') #Apro il file contenente la matrice
+    a = [line.split() for line in f] #Leggo la matrice e la salvo su 'a'
+    csrValA = [] #Salvo i valori della matrice non nulli
+    csrColIndA = [] #Salvo gli indici di colonna
+    csrRowPtrA = []
+    csrRowPtrA.append(len(csrColIndA)) #Leggo il numero dell'indice di csrColIndA
+    for i in range (0,4):
+        for j in range (0,5):
+            if a[i][j] == '0':
+                b = b+1
+            else:
+                csrValA.append(a[i][j])
+                csrColIndA.append(j)
+        csrRowPtrA.append(len(csrColIndA))
+    print "-------------------------------------------"
+    print "Gli elementi nulli sono:", b
+    print "-------------------------------------------\n"
+    print "csrValA: "
+    for k in csrValA:
+        print k,
+    print "\n-------------------------------------------"
+    print "csrRowPtrA: "
+    for o in csrRowPtrA:
+        print o,
+    print "\n-------------------------------------------"
+    print "csrColIndA: "
+    for m in csrColIndA:
+        print m,
+    print "\n-------------------------------------------"
+
+#-----------------------------------------------------------------------------------------#
+
+def CSC():
+    b = 0
+    f = open ('A.txt', 'r') #Apro il file contenente la matrice
+    a = [line.split() for line in f] #Leggo la matrice e la salvo su 'a'
+    cscValA = [] #Salvo i valori della matrice non nulli
+    cscColPtrA = [] #Salvo gli indici di colonna
+    cscRowIndA = []
+    cscColPtrA.append(len(cscRowIndA)) #Leggo il numero dell'indice di cscColPtrA
+    for i in range (0,4):
+        for j in range (0,5):
+            if a[i][j] == '0':
+                b = b+1
+            else:
+                cscValA.append(a[i][j])
+                cscColPtrA.append(j)
+        cscColPtrA.append(len(cscRowIndA))
+    print "-------------------------------------------"
+    print "Gli elementi nulli sono:", b
+    print "-------------------------------------------\n"
+    print "cscValA: "
+    for k in cscValA:
+        print k,
+    print "\n-------------------------------------------"
+    print "cscRowIndA: "
+    for o in cscRowIndA:
+        print o,
+    print "\n-------------------------------------------"
+    print "cscColPtrA: "
+    for m in cscColPtrA:
+        print m,
+    print "\n-------------------------------------------"
+
+#-----------------------------------------------------------------------------------------#
+
 a = 10
 while a != 0:
     print "-------------------------------------------"
@@ -72,6 +109,8 @@ while a != 0:
         print(COO())
     elif a == 2:
         print(CSR())
+    elif a == 3:
+        print(CSC())
     elif a == 0:
         print "Programma terminato."
     else:
