@@ -72,14 +72,14 @@ def CSC():
     cscValA = [] #Salvo i valori della matrice non nulli
     cscColPtrA = [] #Salvo gli indici di colonna
     cscRowIndA = []
-    cscColPtrA.append(len(cscRowIndA)) #Leggo il numero dell'indice di cscColPtrA
-    for i in range (0,4):
-        for j in range (0,5):
-            if a[i][j] == '0':
+    cscColPtrA.append(len(cscRowIndA)) #Leggo il numero dell'indice di cscRowIndA
+    for i in range (0,5):
+        for j in range (0,4):
+            if a[j][i] == '0':
                 b = b+1
             else:
-                cscValA.append(a[i][j])
-                cscColPtrA.append(j)
+                cscValA.append(a[j][i])
+                cscRowIndA.append(j)
         cscColPtrA.append(len(cscRowIndA))
     print "-------------------------------------------"
     print "Gli elementi nulli sono:", b
@@ -102,7 +102,7 @@ def CSC():
 a = 10
 while a != 0:
     print "-------------------------------------------"
-    print("1)COO \n2)CSR \n0)Exit")
+    print("1)COO \n2)CSR \n3)CSC \n0)Exit")
     a = input("Scelta: ")
     print "-------------------------------------------"
     if a == 1:
