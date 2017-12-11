@@ -98,11 +98,25 @@ def CSC():
     print "\n-------------------------------------------"
 
 #-----------------------------------------------------------------------------------------#
-
+def Converti_menu():
+    z = 10
+    while z != 0:
+        print "Converti"
+        print "-------------------------------------------"
+        print ("1)COO2CSR \n2)COO2CSC \n0)Torna al menu principale")
+        z = input("Scelta: ")
+        if z == 1:
+            print ("Sto convertendo da COO a CSR...")
+        elif z == 2:
+            print ("Sto convertendo da COO a CSC...")
+        else:
+            print ("")
+print "-------------------------------------------"
+#-----------------------------------------------------------------------------------------#
 a = 10
 while a != 0:
     print "-------------------------------------------"
-    print("1)COO \n2)CSR \n3)CSC \n0)Exit")
+    print("1)COO \n2)CSR \n3)CSC \n-------------\n4)Converti \n------------- \n0)Exit")
     a = input("Scelta: ")
     print "-------------------------------------------"
     if a == 1:
@@ -111,6 +125,8 @@ while a != 0:
         print(CSR())
     elif a == 3:
         print(CSC())
+    elif a == 4:
+        print(Converti_menu())
     elif a == 0:
         print "Programma terminato."
     else:
