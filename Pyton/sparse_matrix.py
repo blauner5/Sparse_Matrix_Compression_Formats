@@ -1,44 +1,64 @@
 def CSR():
     b = 0
-    f = open ('A.txt', 'r')
-    a = [line.split() for line in f]
-    for i in range (0,4):
-        for j in range (0,5):
-            if a[i][j] == 0:
-                b = b+1
-            else:
-                print (a[i][j])
-    print "Gli elementi nulli sono:", b
-    print "-------------------------------------------"
-
-def COO():
-    b = 0
-    f = open ('A.txt', 'r')
-    a = [line.split() for line in f]
-    ele = []
-    cols = []
-    rows = []
+    f = open ('A.txt', 'r') #Apro il file contenente la matrice
+    a = [line.split() for line in f] #Leggo la matrice e la salvo su 'a'
+    f = 0
+    csrValA = []
+    csrColIndA = []
+    csrRowPtrA = []
+    csrRowPtrA.append(len(csrColIndA))
     for i in range (0,4):
         for j in range (0,5):
             if a[i][j] == '0':
                 b = b+1
             else:
-                ele.append(a[i][j])
-                cols.append(j)
-                rows.append(i)
+                csrValA.append(a[i][j])
+                csrColIndA.append(j)
+        csrRowPtrA.append(len(csrColIndA))
     print "-------------------------------------------"
     print "Gli elementi nulli sono:", b
     print "-------------------------------------------\n"
-    print "Elementi: "
-    for k in ele:
+    print "csrValA: "
+    for k in csrValA:
         print k,
     print "\n-------------------------------------------"
-    print "cooRows: "
-    for o in rows:
+    print "csrRowPtrA: "
+    for o in csrRowPtrA:
         print o,
     print "\n-------------------------------------------"
-    print "cooCols: "
-    for m in cols:
+    print "csrColIndA: "
+    for m in csrColIndA:
+        print m,
+    print "\n-------------------------------------------"
+
+def COO():
+    b = 0
+    f = open ('A.txt', 'r') #Apro il file contenente la matrice
+    a = [line.split() for line in f] #Leggo la matrice e la salvo su 'a'
+    cooValA = [] #Salvo i valori della matrice non nulli
+    cooColIndA = [] #Salvo gli indici di colonna
+    cooRowIndA = [] #Salvo gli indici di riga
+    for i in range (0,4):
+        for j in range (0,5):
+            if a[i][j] == '0': #Controllo se i valori della matrice sono nulli
+                b = b+1
+            else:
+                cooValA.append(a[i][j])
+                cooColIndA.append(j)
+                cooRowIndA.append(i)
+    print "-------------------------------------------"
+    print "Gli elementi nulli sono:", b
+    print "-------------------------------------------\n"
+    print "cooValA: "
+    for k in cooValA:
+        print k,
+    print "\n-------------------------------------------"
+    print "cooRowIndA: "
+    for o in cooRowIndA:
+        print o,
+    print "\n-------------------------------------------"
+    print "cooColIndA: "
+    for m in cooColIndA:
         print m,
     print "\n-------------------------------------------"
 
