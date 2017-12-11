@@ -37,7 +37,7 @@ def CSR():
     a = [line.split() for line in f] #Leggo la matrice e la salvo su 'a'
     csrValA = [] #Salvo i valori della matrice non nulli
     csrColIndA = [] #Salvo gli indici di colonna
-    csrRowPtrA = []
+    csrRowPtrA = [] #Salvo dove inizia la riga
     csrRowPtrA.append(len(csrColIndA)) #Leggo il numero dell'indice di csrColIndA
     for i in range (0,4):
         for j in range (0,5):
@@ -70,8 +70,8 @@ def CSC():
     f = open ('A.txt', 'r') #Apro il file contenente la matrice
     a = [line.split() for line in f] #Leggo la matrice e la salvo su 'a'
     cscValA = [] #Salvo i valori della matrice non nulli
-    cscColPtrA = [] #Salvo gli indici di colonna
-    cscRowIndA = []
+    cscColPtrA = [] #Salvo dove inizia la colonna
+    cscRowIndA = [] #Salvo gli indici di riga
     cscColPtrA.append(len(cscRowIndA)) #Leggo il numero dell'indice di cscRowIndA
     for i in range (0,5):
         for j in range (0,4):
