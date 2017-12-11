@@ -2,7 +2,6 @@ def CSR():
     b = 0
     f = open ('A.txt', 'r') #Apro il file contenente la matrice
     a = [line.split() for line in f] #Leggo la matrice e la salvo su 'a'
-    f = 0
     csrValA = []
     csrColIndA = []
     csrRowPtrA = []
