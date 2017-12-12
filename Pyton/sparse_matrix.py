@@ -1,5 +1,5 @@
 def COO():
-    b = 0
+    num_ele_null = 0
     f = open ('A.txt', 'r') #Apro il file contenente la matrice
     a = [line.split() for line in f] #Leggo la matrice e la salvo su 'a'
     cooValA = [] #Salvo i valori della matrice non nulli
@@ -10,13 +10,13 @@ def COO():
     for i in range (0,numrows):
         for j in range (0,numcols):
             if a[i][j] == '0': #Controllo se i valori della matrice sono nulli
-                b = b+1
+                num_ele_null = num_ele_null+1
             else:
                 cooValA.append(a[i][j])
                 cooColIndA.append(j)
                 cooRowIndA.append(i)
     print "-------------------------------------------"
-    print "Gli elementi nulli sono:", b
+    print "Gli elementi nulli sono:", num_ele_null
     print "-------------------------------------------\n"
     print "cooValA: "
     for k in cooValA:
@@ -32,7 +32,7 @@ def COO():
     print "\n-------------------------------------------"
 #-----------------------------------------------------------------------------------------#
 def CSR():
-    b = 0
+    num_ele_null = 0
     f = open ('A.txt', 'r') #Apro il file contenente la matrice
     a = [line.split() for line in f] #Leggo la matrice e la salvo su 'a'
     csrValA = [] #Salvo i valori della matrice non nulli
@@ -44,13 +44,13 @@ def CSR():
     for i in range (0,numrows):
         for j in range (0,numcols):
             if a[i][j] == '0':
-                b = b+1
+                num_ele_null = num_ele_null+1
             else:
                 csrValA.append(a[i][j])
                 csrColIndA.append(j)
         csrRowPtrA.append(len(csrColIndA))
     print "-------------------------------------------"
-    print "Gli elementi nulli sono:", b
+    print "Gli elementi nulli sono:", num_ele_null
     print "-------------------------------------------\n"
     print "csrValA: "
     for k in csrValA:
@@ -66,7 +66,7 @@ def CSR():
     print "\n-------------------------------------------"
 #-----------------------------------------------------------------------------------------#
 def CSC():
-    b = 0
+    num_ele_null = 0
     f = open ('A.txt', 'r') #Apro il file contenente la matrice
     a = [line.split() for line in f] #Leggo la matrice e la salvo su 'a'
     cscValA = [] #Salvo i valori della matrice non nulli
@@ -78,13 +78,13 @@ def CSC():
     for i in range(0,numcols):
         for j in range(0,numrows):
             if a[j][i] == '0':
-                b = b+1
+                num_ele_null = num_ele_null+1
             else:
                 cscValA.append(a[j][i])
                 cscRowIndA.append(j)
         cscColPtrA.append(len(cscRowIndA))
     print "-------------------------------------------"
-    print "Gli elementi nulli sono:", b
+    print "Gli elementi nulli sono:", num_ele_null
     print "-------------------------------------------\n"
     print "cscValA: "
     for k in cscValA:
