@@ -109,32 +109,44 @@ def Converti_menu():
     while z != 0:
         print "Converti"
         print "-------------------------------------------"
-        print ("1)COO2CSR \n2)COO2CSC \n0)Torna al menu principale")
+        print ("1)COO2CSR \n2)COO2CSC \n---------------------------- \n3)Torna al menu principale \n0)Exit")
         z = input("Scelta: ")
+        print "-------------------------------------------"
         if z == 1:
-            print ("Sto convertendo da COO a CSR...")
+            print "Sto convertendo da COO a CSR..."
         elif z == 2:
-            print ("Sto convertendo da COO a CSC...")
+            print "Sto convertendo da COO a CSC..."
+        elif z == 3:
+            print(main())
+        elif z == 0:
+            print "Programma terminato."
+            exit()
         else:
-            print ("")
+            print "Scelta non valida."
 print "-------------------------------------------"
 #-----------------------------------------------------------------------------------------#
-a = 10
-while a != 0:
+
+def main():
+    a = 10
+    while a != 0:
+        print "-------------------------------------------"
+        print("1)COO \n2)CSR \n3)CSC \n-------------\n4)Converti \n------------- \n0)Exit")
+        a = input("Scelta: ")
+        print "-------------------------------------------"
+        if a == 1:
+            print(COO())
+        elif a == 2:
+            print(CSR())
+        elif a == 3:
+            print(CSC())
+        elif a == 4:
+            print(Converti_menu())
+        elif a == 0:
+            print "Programma terminato."
+            exit()
+        else:
+            print "Scelta non valida."
     print "-------------------------------------------"
-    print("1)COO \n2)CSR \n3)CSC \n-------------\n4)Converti \n------------- \n0)Exit")
-    a = input("Scelta: ")
-    print "-------------------------------------------"
-    if a == 1:
-        print(COO())
-    elif a == 2:
-        print(CSR())
-    elif a == 3:
-        print(CSC())
-    elif a == 4:
-        print(Converti_menu())
-    elif a == 0:
-        print "Programma terminato."
-    else:
-        print "Scelta non valida."
-print "-------------------------------------------"
+
+if __name__ == "__main__":
+    main()
