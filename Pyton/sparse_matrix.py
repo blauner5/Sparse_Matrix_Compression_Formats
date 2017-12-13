@@ -1,7 +1,8 @@
 def COO():
     num_ele_null = 0
     f = open ('A.txt', 'r') #Apro il file contenente la matrice
-    a = [line.split() for line in f] #Leggo la matrice e la salvo su 'a'
+    a = [map(int,line.split(' ')) for line in f] #Leggo la matrice e la salvo su 'a'
+    print a
     cooValA = [] #Salvo i valori della matrice non nulli
     cooColIndA = [] #Salvo gli indici di colonna
     cooRowIndA = [] #Salvo gli indici di riga
@@ -9,7 +10,7 @@ def COO():
     numcols = len(a[0]) #Salvo la dimensione della matrice (colonna)
     for i in range (0,numrows):
         for j in range (0,numcols):
-            if a[i][j] == '0': #Controllo se i valori della matrice sono nulli
+            if a[i][j] == 0: #Controllo se i valori della matrice sono nulli
                 num_ele_null = num_ele_null+1
             else:
                 cooValA.append(a[i][j])
