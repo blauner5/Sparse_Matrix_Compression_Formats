@@ -133,8 +133,8 @@ def main():
             print(CSR())
         elif a == 3:
             print(CSC())
-        elif a == 4:
-            print(Converti_menu())
+        #elif a == 4:   nenu converti disabilitato
+        #    print(Converti_menu())
         elif a == 0:
             print "Programma terminato."
             exit()
