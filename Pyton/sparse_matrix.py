@@ -16,6 +16,7 @@ def COO():
                 cooColIndA.append(j)
                 cooRowIndA.append(i)
     print "-------------------------------------------"
+    print "La dimensione della matrice e':  %dx%d" % (numrows, numcols)
     print "Gli elementi nulli sono:", num_ele_null
     print "-------------------------------------------\n"
     print "cooValA: "
@@ -50,6 +51,7 @@ def CSR():
                 csrColIndA.append(j)
         csrRowPtrA.append(len(csrColIndA))
     print "-------------------------------------------"
+    print "La dimensione della matrice e':  %dx%d" % (numrows, numcols)
     print "Gli elementi nulli sono:", num_ele_null
     print "-------------------------------------------\n"
     print "csrValA: "
@@ -84,6 +86,7 @@ def CSC():
                 cscRowIndA.append(j)
         cscColPtrA.append(len(cscRowIndA))
     print "-------------------------------------------"
+    print "La dimensione della matrice e':  %dx%d" % (numrows, numcols)
     print "Gli elementi nulli sono:", num_ele_null
     print "-------------------------------------------\n"
     print "cscValA: "
