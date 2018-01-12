@@ -127,7 +127,7 @@ def main():
     a = 10
     while a != 0:
         print "-------------------------------------------"
-        print("1)COO \n2)CSR \n3)CSC \n-------------\n4)Converti \n------------- \n0)Exit")
+        print("1)COO \n2)CSR \n3)CSC \n------------- \n0)Exit")
         a = input("Scelta: ")
         print "-------------------------------------------"
         if a == 1:
