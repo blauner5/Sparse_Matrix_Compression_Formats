@@ -1,6 +1,8 @@
+from random import randint
+
 def COO():
     num_ele_null = 0
-    f = open ('A.txt', 'r') #Apro il file contenente la matrice
+    f = open ('b.txt', 'r') #Apro il file contenente la matrice
     a = [map(int,line.split(' ')) for line in f] #Leggo la matrice e la salvo su 'a'
     cooValA = [] #Salvo i valori della matrice non nulli
     cooColIndA = [] #Salvo gli indici di colonna
@@ -34,7 +36,7 @@ def COO():
 #-----------------------------------------------------------------------------------------#
 def CSR():
     num_ele_null = 0
-    f = open ('A.txt', 'r') #Apro il file contenente la matrice
+    f = open ('b.txt', 'r') #Apro il file contenente la matrice
     a = [map(int,line.split(' ')) for line in f] #Leggo la matrice e la salvo su 'a'
     csrValA = [] #Salvo i valori della matrice non nulli
     csrColIndA = [] #Salvo gli indici di colonna
@@ -69,7 +71,7 @@ def CSR():
 #-----------------------------------------------------------------------------------------#
 def CSC():
     num_ele_null = 0
-    f = open ('A.txt', 'r') #Apro il file contenente la matrice
+    f = open ('b.txt', 'r') #Apro il file contenente la matrice
     a = [map(int,line.split(' ')) for line in f] #Leggo la matrice e la salvo su 'a'
     cscValA = [] #Salvo i valori della matrice non nulli
     cscColPtrA = [] #Salvo dove inizia la colonna
@@ -123,11 +125,20 @@ def Converti_menu():
             print "Scelta non valida."
     print "-------------------------------------------"
 #-----------------------------------------------------------------------------------------#
+#Genero una matrice
+
+def genera(righe, colonne):
+    for i in range(0, righe):
+        print ("\n"),
+        for j in range(0,colonne):
+            a = randint(0, 9)
+            print(a),
+#-----------------------------------------------------------------------------------------#
 def main():
     a = 10
     while a != 0:
-        print "-------------------------------------------"
-        print("1)COO \n2)CSR \n3)CSC \n------------- \n0)Exit")
+        print "\n-------------------------------------------"
+        print("1)COO \n2)CSR \n3)CSC \n4)Genera Matrice \n------------- \n0)Exit")
         a = input("Scelta: ")
         print "-------------------------------------------"
         if a == 1:
@@ -136,6 +147,10 @@ def main():
             print(CSR())
         elif a == 3:
             print(CSC())
+        elif a == 4:
+            z = input ("Righe: ")
+            x = input ("Colonne: ")
+            genera(z,x)
         #elif a == 4:   nenu converti disabilitato
         #    print(Converti_menu())
         elif a == 0:
