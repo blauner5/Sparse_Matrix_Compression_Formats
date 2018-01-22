@@ -33,6 +33,7 @@ def COO():
     for m in cooColIndA:
         print m,
     print "\n-------------------------------------------"
+    print "La dimensione della matrice e':  %dx%d" % (numrows, numcols)
 #-----------------------------------------------------------------------------------------#
 def CSR():
     num_ele_null = 0
@@ -68,6 +69,7 @@ def CSR():
     for m in csrColIndA:
         print m,
     print "\n-------------------------------------------"
+    print "La dimensione della matrice e':  %dx%d" % (numrows, numcols)
 #-----------------------------------------------------------------------------------------#
 def CSC():
     num_ele_null = 0
@@ -103,6 +105,7 @@ def CSC():
     for m in cscColPtrA:
         print m,
     print "\n-------------------------------------------"
+    print "La dimensione della matrice e':  %dx%d" % (numrows, numcols)
 #-----------------------------------------------------------------------------------------#
 def Converti_menu():
     z = 10
@@ -128,11 +131,14 @@ def Converti_menu():
 #Genero una matrice
 
 def genera(righe, colonne):
+    fil = open("b.txt", "w")
     for i in range(0, righe):
         print ("\n"),
+        fil.write("\n")
         for j in range(0,colonne):
             a = randint(0, 9)
             print(a),
+            fil.write("%d " %a)
 #-----------------------------------------------------------------------------------------#
 def main():
     a = 10
