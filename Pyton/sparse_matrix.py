@@ -4,7 +4,8 @@ import sys
 def COO():
     num_ele_null = 0
     num_ele = 0
-    f = open ('A.txt', 'r') #Apro il file contenente la matrice
+    ele_non_null = 0
+    f = open ('b.txt', 'r') #Apro il file contenente la matrice
     a = [map(int,line.split(' ')) for line in f] #Leggo la matrice e la salvo su 'a'
     cooValA = [] #Salvo i valori della matrice non nulli
     cooColIndA = [] #Salvo gli indici di colonna
@@ -21,11 +22,13 @@ def COO():
                 cooColIndA.append(j)
                 cooRowIndA.append(i)
                 num_ele = num_ele+1
+                ele_non_null = ele_non_null+1
     doc = open("out.txt", "w")
     print "-------------------------------------------"
     print "La dimensione della matrice e':  %dx%d" % (numrows, numcols)
     print "Gli elementi sono: ", num_ele
     print "Gli elementi nulli sono:", num_ele_null
+    print "Gli elementi non nulli sono: ", ele_non_null
     print "Grandezza degli array in byte: \n"
     grandezza_cooValA = sys.getsizeof(cooValA)
     grandezza_cooColIndA = sys.getsizeof(cooColIndA)
@@ -38,25 +41,26 @@ def COO():
     print "cooValA: "
     for k in cooValA:
         doc.write("%d " %k),
-        print k,
+        #print k,
     print "\n-------------------------------------------"
     doc.write("\n")
     print "cooRowIndA: "
     for o in cooRowIndA:
         doc.write("%d " %o),
-        print o,
+        #print o,
     print "\n-------------------------------------------"
     print "cooColIndA: "
     doc.write("\n")
     for m in cooColIndA:
         doc.write("%d " %m),
-        print m,
+        #print m,
     print "\n-------------------------------------------"
 #-----------------------------------------------------------------------------------------#
 def CSR():
     num_ele_null = 0
     num_ele = 0
-    f = open ('A.txt', 'r') #Apro il file contenente la matrice
+    ele_non_null = 0
+    f = open ('b.txt', 'r') #Apro il file contenente la matrice
     a = [map(int,line.split(' ')) for line in f] #Leggo la matrice e la salvo su 'a'
     csrValA = [] #Salvo i valori della matrice non nulli
     csrColIndA = [] #Salvo gli indici di colonna
@@ -73,12 +77,14 @@ def CSR():
                 csrValA.append(a[i][j])
                 csrColIndA.append(j)
                 num_ele = num_ele+1
+                ele_non_null = ele_non_null+1
         csrRowPtrA.append(len(csrColIndA))
     doc = open("out.txt", "w")
     print "-------------------------------------------"
     print "La dimensione della matrice e':  %dx%d" % (numrows, numcols)
     print "Gli elementi sono: ", num_ele
     print "Gli elementi nulli sono:", num_ele_null
+    print "Gli elementi non nulli sono: ", ele_non_null
     grandezza_csrValA = sys.getsizeof(csrValA)
     grandezza_csrRowPtrA = sys.getsizeof(csrRowPtrA)
     grandezza_csrColIndA = sys.getsizeof(csrColIndA)
@@ -90,25 +96,26 @@ def CSR():
     print "csrValA: "
     for k in csrValA:
         doc.write("%d " %k)
-        print k,
+        #print k,
     print "\n-------------------------------------------"
     doc.write("\n")
     print "csrRowPtrA: "
     for o in csrRowPtrA:
         doc.write("%d " %o)
-        print o,
+        #print o,
     print "\n-------------------------------------------"
     doc.write("\n")
     print "csrColIndA: "
     for m in csrColIndA:
         doc.write("%d " %m)
-        print m,
+        #print m,
     print "\n-------------------------------------------"
 #-----------------------------------------------------------------------------------------#
 def CSC():
     num_ele_null = 0
     num_ele = 0
-    f = open ('A.txt', 'r') #Apro il file contenente la matrice
+    ele_non_null = 0
+    f = open ('b.txt', 'r') #Apro il file contenente la matrice
     a = [map(int,line.split(' ')) for line in f] #Leggo la matrice e la salvo su 'a'
     cscValA = [] #Salvo i valori della matrice non nulli
     cscColPtrA = [] #Salvo dove inizia la colonna
@@ -125,12 +132,14 @@ def CSC():
                 cscValA.append(a[j][i])
                 cscRowIndA.append(j)
                 num_ele = num_ele+1
+                ele_non_null = ele_non_null+1
         cscColPtrA.append(len(cscRowIndA))
     doc = open("out.txt", "w")
     print "-------------------------------------------"
     print "La dimensione della matrice e':  %dx%d" % (numrows, numcols)
     print "Gli elementi sono: ", num_ele
     print "Gli elementi nulli sono:", num_ele_null
+    print "Gli elementi non nulli sono: ", ele_non_null
     grandezza_cscValA = sys.getsizeof(cscValA)
     grandezza_csrRowIndA = sys.getsizeof(cscRowIndA)
     grandezza_csrColPtrA = sys.getsizeof(cscColPtrA)
@@ -142,19 +151,19 @@ def CSC():
     print "cscValA: "
     for k in cscValA:
         doc.write("%d " %k)
-        print k,
+        #print k,
     print "\n-------------------------------------------"
     doc.write("\n")
     print "cscRowIndA: "
     for o in cscRowIndA:
         doc.write("%d " %o)
-        print o,
+        #print o,
     print "\n-------------------------------------------"
     print "cscColPtrA: "
     doc.write("\n")
     for m in cscColPtrA:
         doc.write("%d " %m)
-        print m,
+        #print m,
     print "\n-------------------------------------------"
 #-----------------------------------------------------------------------------------------#
 def Converti_menu():
