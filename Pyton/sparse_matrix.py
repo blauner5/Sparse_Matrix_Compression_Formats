@@ -1,7 +1,9 @@
 from random import randint
+import sys
 
 def COO():
     num_ele_null = 0
+    num_ele = 0
     f = open ('A.txt', 'r') #Apro il file contenente la matrice
     a = [map(int,line.split(' ')) for line in f] #Leggo la matrice e la salvo su 'a'
     cooValA = [] #Salvo i valori della matrice non nulli
@@ -13,14 +15,24 @@ def COO():
         for j in range (0,numcols):
             if a[i][j] == 0: #Controllo se i valori della matrice sono nulli
                 num_ele_null = num_ele_null+1
+                num_ele = num_ele+1
             else:
                 cooValA.append(a[i][j])
                 cooColIndA.append(j)
                 cooRowIndA.append(i)
+                num_ele = num_ele+1
     doc = open("out.txt", "w")
     print "-------------------------------------------"
     print "La dimensione della matrice e':  %dx%d" % (numrows, numcols)
+    print "Gli elementi sono: ", num_ele
     print "Gli elementi nulli sono:", num_ele_null
+    print "Grandezza degli array in byte: \n"
+    grandezza_cooValA = sys.getsizeof(cooValA)
+    grandezza_cooColIndA = sys.getsizeof(cooColIndA)
+    grandezza_cooRowIndA = sys.getsizeof(cooRowIndA)
+    print "Grandezza cooValA: ", grandezza_cooValA
+    print "Grandezza cooRowIndA: ", grandezza_cooRowIndA
+    print "Grandezza cooColIndA: ", grandezza_cooColIndA
     print "-------------------------------------------\n"
     doc.write("Come leggere il file: \ncooValA cooRowIndA cooColIndA\n")
     print "cooValA: "
@@ -43,6 +55,7 @@ def COO():
 #-----------------------------------------------------------------------------------------#
 def CSR():
     num_ele_null = 0
+    num_ele = 0
     f = open ('A.txt', 'r') #Apro il file contenente la matrice
     a = [map(int,line.split(' ')) for line in f] #Leggo la matrice e la salvo su 'a'
     csrValA = [] #Salvo i valori della matrice non nulli
@@ -55,14 +68,23 @@ def CSR():
         for j in range (0,numcols):
             if a[i][j] == 0:
                 num_ele_null = num_ele_null+1
+                num_ele = num_ele+1
             else:
                 csrValA.append(a[i][j])
                 csrColIndA.append(j)
+                num_ele = num_ele+1
         csrRowPtrA.append(len(csrColIndA))
     doc = open("out.txt", "w")
     print "-------------------------------------------"
     print "La dimensione della matrice e':  %dx%d" % (numrows, numcols)
+    print "Gli elementi sono: ", num_ele
     print "Gli elementi nulli sono:", num_ele_null
+    grandezza_csrValA = sys.getsizeof(csrValA)
+    grandezza_csrRowPtrA = sys.getsizeof(csrRowPtrA)
+    grandezza_csrColIndA = sys.getsizeof(csrColIndA)
+    print "Grandezza csrValA: ", grandezza_csrValA
+    print "Grandezza csrRowPtrA: ", grandezza_csrRowPtrA
+    print "Grandezza csrColIndA: ", grandezza_csrColIndA
     print "-------------------------------------------\n"
     doc.write("Come leggere il file: \ncsrValA csrRowPtrA csrColIndA\n")
     print "csrValA: "
@@ -85,6 +107,7 @@ def CSR():
 #-----------------------------------------------------------------------------------------#
 def CSC():
     num_ele_null = 0
+    num_ele = 0
     f = open ('A.txt', 'r') #Apro il file contenente la matrice
     a = [map(int,line.split(' ')) for line in f] #Leggo la matrice e la salvo su 'a'
     cscValA = [] #Salvo i valori della matrice non nulli
@@ -97,14 +120,23 @@ def CSC():
         for j in range(0,numrows):
             if a[j][i] == 0:
                 num_ele_null = num_ele_null+1
+                num_ele = num_ele+1
             else:
                 cscValA.append(a[j][i])
                 cscRowIndA.append(j)
+                num_ele = num_ele+1
         cscColPtrA.append(len(cscRowIndA))
     doc = open("out.txt", "w")
     print "-------------------------------------------"
     print "La dimensione della matrice e':  %dx%d" % (numrows, numcols)
+    print "Gli elementi sono: ", num_ele
     print "Gli elementi nulli sono:", num_ele_null
+    grandezza_cscValA = sys.getsizeof(cscValA)
+    grandezza_csrRowIndA = sys.getsizeof(cscRowIndA)
+    grandezza_csrColPtrA = sys.getsizeof(cscColPtrA)
+    print "Grandezza cscValA: ", grandezza_cscValA
+    print "Grandezza csrRowIndA: ", grandezza_csrRowIndA
+    print "Grandezza csrColPtrA: ", grandezza_csrColPtrA
     print "-------------------------------------------\n"
     doc.write("Come leggere il file: \ncscValA cscRowIndA cscColPtrA\n")
     print "cscValA: "
