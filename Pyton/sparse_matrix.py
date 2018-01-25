@@ -37,6 +37,7 @@ def COO():
     print "Grandezza cooRowIndA: ", grandezza_cooRowIndA
     print "Grandezza cooColIndA: ", grandezza_cooColIndA
     print "-------------------------------------------\n"
+    doc.write("COO\n") #per chi non legge bene!
     doc.write("Come leggere il file: \ncooValA cooRowIndA cooColIndA\n")
     print "cooValA: "
     for k in cooValA:
@@ -92,6 +93,7 @@ def CSR():
     print "Grandezza csrRowPtrA: ", grandezza_csrRowPtrA
     print "Grandezza csrColIndA: ", grandezza_csrColIndA
     print "-------------------------------------------\n"
+    doc.write("CSR\n")
     doc.write("Come leggere il file: \ncsrValA csrRowPtrA csrColIndA\n")
     print "csrValA: "
     for k in csrValA:
@@ -147,6 +149,7 @@ def CSC():
     print "Grandezza csrRowIndA: ", grandezza_csrRowIndA
     print "Grandezza csrColPtrA: ", grandezza_csrColPtrA
     print "-------------------------------------------\n"
+    doc.write("CSC\n")
     doc.write("Come leggere il file: \ncscValA cscRowIndA cscColPtrA\n")
     print "cscValA: "
     for k in cscValA:
