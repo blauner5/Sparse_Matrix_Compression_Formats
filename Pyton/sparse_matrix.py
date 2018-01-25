@@ -195,11 +195,15 @@ def Converti_menu():
 def genera(righe, colonne):
     fil = open("b.txt", "w")
     for i in range(0, righe):
-        print ("\n"),
+        #print ("\n"),
         fil.write("\n")
         for j in range(0,colonne):
-            a = randint(0, 9)
-            print(a),
+            b = randint(0, 7)
+            if (b == 0):
+                a = 100*randint(1, 9)+randint(0, 50)
+            else:
+                a = 0
+            #print(a),
             fil.write("%d " %a)
 #-----------------------------------------------------------------------------------------#
 def main():
