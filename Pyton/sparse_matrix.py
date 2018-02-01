@@ -200,7 +200,7 @@ def genera(righe, colonne):
         for j in range(0,colonne):
             b = randint(0, 7)
             if (b == 0):
-                a = 100*randint(1, 9)+randint(0, 50)
+                a = randint(1, 9)
             else:
                 a = 0
             #print(a),
