@@ -3,6 +3,35 @@
 
 using namespace std;
 
+
+void test() {
+	int val = 0, rows = 0, cols = 0, numItems = 0;
+	string line;
+	ifstream file("C:\\Users\\ricca\\Desktop\\Sparse_Matrix_Compression_Formats\\C++\\A.txt");
+	while (file.peek() != '\n' && file >> val)
+	{
+		cout << val << ' ';
+		++numItems;
+	}
+	cols = numItems;// # of columns found
+
+	cout << '\n';
+	while (file >> val)
+	{
+		++numItems;
+		cout << val << ' ';
+		if (numItems%cols == 0) cout << '\n';
+	}
+	file.close();
+	rows = numItems / cols;
+	cout << "rows = " << rows << ", cols = " << cols << '\n';
+	//creo la nuova matrice
+	int** matrix = new int*[rows];
+	for (int i = 0; i < rows; ++i)
+	{
+		matrix[i] = new int[cols];
+	}
+}
 //COO
 void COO() {
 	int val=0, rows=0, cols=0, numItems=0;
@@ -31,8 +60,7 @@ void COO() {
 	{
 		matrix[i] = new int[cols];
 	}
-	//int rows = sizeof(a) / sizeof(a[0]);  //Controllo la dimensione della matrice righe
-	//int cols = sizeof(a[0]) / sizeof(a[0][0]); //Controllo la dimensione della matrice colonne
+
 	int b = rows + cols;
 	int cooValA[10]; //elementi della matrice non zero
 	int cooColIndA[10]; //Salvo gli indici
@@ -200,7 +228,7 @@ int main()
 	while (a != 0) {
 		cout << "-------------------------------------------------------" << endl;
 		cout << "Cosa desideri stampare: " << endl;
-		cout << "1) COO" << endl << "2) CSR" << endl << "3) CSC" << endl << "0) Exit" << endl;
+		cout << "1) COO" << endl << "2) CSR" << endl << "3) CSC" << endl << "4) TEST" << endl << "0) Exit" << endl;
 		cout << "Scelta: ";
 		cin >> a;
 		if (a == 1) {
@@ -211,6 +239,9 @@ int main()
 		}
 		else if (a == 3) {
 			CSC();
+		}
+		else if (a == 4) {
+			test();
 		}
 		else {
 			a == 0;
