@@ -5,16 +5,10 @@ using namespace std;
 
 //COO
 void COO() {
-	int a[4][5] = {
-		{ 1,4,0,0,0 },
-		{ 0,2,3,0,0 },
-		{ 5,0,0,7,8 },
-		{ 0,0,9,0,6 }
-	};//La mia matrice A con elementi nulli
 	int val=0, rows=0, cols=0, numItems=0;
 	string line;
-	ifstream fin("A.txt");
-	while( fin.peek() != '\n' && fin >> val )
+	ifstream file("C:\\Users\\ricca\\Desktop\\Sparse_Matrix_Compression_Formats\\C++\\A.txt");
+	while(file.peek() != '\n' && file >> val )
     {
         cout << val << ' ';
         ++numItems;
@@ -22,12 +16,13 @@ void COO() {
     cols = numItems;// # of columns found
 
     cout << '\n';
-    while( fin >> val )
+    while(file >> val )
     {
         ++numItems;
         cout << val << ' ';
         if( numItems%cols == 0 ) cout << '\n';
     }
+	file.close();
     rows = numItems/cols;
     cout << "rows = " << rows << ", cols = " << cols << '\n';
 	//creo la nuova matrice
@@ -47,11 +42,11 @@ void COO() {
 	int elezero = 0;
 	for (i = 0; i < rows; i++) {
 		for (j = 0; j < cols; j++) {
-			if (a[i][j] == 0) { //controllo gli elementi nulli
+			if (matrix[i][j] == 0) { //controllo gli elementi nulli
 				elezero = elezero + 1;
 			}
 			else {
-				cooValA[f] = a[i][j];
+				cooValA[f] = matrix[i][j];
 				cooColIndA[f] = j;
 				cooRowIndA[f] = i;
 				f++;
