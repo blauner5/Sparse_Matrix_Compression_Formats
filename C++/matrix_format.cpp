@@ -8,7 +8,25 @@ void test() {
 	int val = 0, rows = 0, cols = 0, numItems = 0;
 	string line;
 	ifstream file("C:\\Users\\ricca\\Desktop\\Sparse_Matrix_Compression_Formats\\C++\\A.txt");
-	while (file.peek() != '\n' && file >> val)
+	int x;
+	int f = 1;
+	int z = 1;
+	while (file >> x) {
+		if (file.peek() != '\n') {
+			cout << x;
+			z++;
+		}
+		else {
+			f++;
+			cout << x;
+			cout << endl;
+		}
+	}
+	cout << endl;
+	cout << "righe: " << f << endl;
+	cout << "colonne: " << z << endl;
+
+	/*while (file.peek() != '\n' && file >> val)
 	{
 		cout << val << ' ';
 		++numItems;
@@ -25,12 +43,14 @@ void test() {
 	file.close();
 	rows = numItems / cols;
 	cout << "rows = " << rows << ", cols = " << cols << '\n';
+
+
 	//creo la nuova matrice
 	int** matrix = new int*[rows];
 	for (int i = 0; i < rows; ++i)
 	{
 		matrix[i] = new int[cols];
-	}
+	}*/
 }
 //COO
 void COO() {
